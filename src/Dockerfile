@@ -77,3 +77,6 @@ RUN apk del curl
 
 # Expose port (HOST:CONTAINER; nginx, may be configured from outside with docker-compose)
 EXPOSE 7440:80
+
+RUN adduser -D -u 1000 appuser && chown -R 1000:1000 /usr/share/nginx/html
+USER 1000
